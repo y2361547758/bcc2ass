@@ -46,7 +46,7 @@ def bcc2ass(bcc, output, type):
                 count += 1
             elif type == 'ass':
                 align = '' if i['location'] == Alignment else '{\\a%d}' % i['location']
-                print("Dialogue: 0," + sec2time(i['from'], type) + "," + sec2time(i['to'], type) + ",Default,,0,0,0,," + align + i['content'], file=f)
+                print("Dialogue: 0," + sec2time(i['from'], type) + "," + sec2time(i['to'], type) + ",Default,,0,0,0,," + align + i['content'].replace('\n',r'\n'), file=f)
             elif type == 'lrc':
                 if last != i['from']: print('[' + sec2time(last, type) + ']', file=f)
                 print('[' + sec2time(i['from'], type) + ']' + i['content'], file=f)
