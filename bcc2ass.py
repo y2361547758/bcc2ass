@@ -19,7 +19,7 @@ def color2asscolor(color, alpha = 0):
     return ("&H%02X" % alpha) + color[1:]
 
 def bcc2ass(bcc, output, type):
-    with open(output, 'w') as f:
+    with open(output, 'w', encoding='utf-8') as f:
         count = 1
         if type == 'ass':
             print("[V4+ Styles]", file=f)
